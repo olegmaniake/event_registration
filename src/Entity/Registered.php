@@ -46,7 +46,7 @@ use Drupal\Core\Entity\EntityChangedTrait
  *     "delete-form" = "/registered/{registered}/delete",
  *     "collection" = "/registered/list",
  *   },
- *   field_ui_base_route = "event.event_settings",
+ *   field_ui_base_route = "registered.registered_settings",
  * )
  */
 
