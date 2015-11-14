@@ -1,0 +1,21 @@
+'delete event entity':
+  title: Delete entity event
+'add event entity':
+  title: Add entity event
+'view event entity':
+  title: View entity event
+'edit event entity':
+  title: Edit entity event
+'administer event entity':
+  title: Administer event
+
+'delete registered entity':
+  title: Delete entity registered
+'add registered entity':
+  title: Add entity registered
+'view registered entity':
+  title: View entity registered
+'edit registered entity':
+  title: Edit entity registered
+'administer registered entity':
+  title: Administer registered

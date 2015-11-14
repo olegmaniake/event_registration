@@ -1,0 +1,20 @@
+entity.event.collection:
+  title: 'Events List'
+  route_name: entity.event.collection
+  description: 'Lest Events'
+  weight: 13
+entity.registered.collection:
+  title: 'Registered List'
+  route_name: entity.registered.collection
+  description: 'Lest Registered'
+  weight: 14
+event_registration_event.admin.structure.settings:
+  title: Event Settings
+  description: 'Configure Event Entity'
+  route_name: event.event_settings
+  parent: system.admin_structure
+event_registration_registered.admin.structure.settings:
+  title: Regisered Settings
+  description: 'Configure Registered Entity'
+  route_name: registered.registered_settings
+  parent: system.admin_structure

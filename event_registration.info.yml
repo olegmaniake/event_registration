@@ -1,0 +1,5 @@
+name: event registration
+package: event registration
+description: 'Give a chance to registered on event.'
+type: module
+core: 8.x

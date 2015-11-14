@@ -1,0 +1,13 @@
+entity.event.add:
+  route_name: entity.event.add
+  title: 'Add Event'
+  appears_on:
+    - entity.event.collection
+    - entity.event.canonical
+entity.registered.add:
+  route_name: entity.registered.add
+  title: 'Sign up for an event'
+  appears_on:
+    - entity.event.canonical
+    - entity.registered.collection
+    - entity.registered.canonical

@@ -1,0 +1,96 @@
+entity.event.canonical:
+  path: '/event/{event}'
+  defaults:
+    _entity_view: 'event'
+    _title: 'Event Content'
+  requirements:
+    _entity_access: 'event.view'
+
+entity.event.collection:
+  path: '/event/list'
+  defaults:
+    _entity_list: 'event'
+    _title: 'Event List'
+  requirements:
+    _permission: 'view event entity'
+
+entity.event.add:
+  path: '/event/add'
+  defaults:
+    _entity_form: event.add
+    _title: 'Add Event'
+  requirements:
+    _entity_create_access: 'event'
+
+entity.event.edit_form:
+  path: '/event/{event}/edit'
+  defaults:
+    _entity_form: event.edit
+    _title: 'Edit Event'
+  requirements:
+    _entity_access: 'event.edit'
+
+entity.event.delete_form:
+  path: '/event/{event}/delete'
+  defaults:
+    _entity_form: event.delete
+    _title: 'Delete Event'
+  requirements:
+    _entity_access: 'event.delete'
+
+event.event_settings:
+  path: 'admin/structure/event_settings'
+  defaults:
+    _form: '\Drupal\event_registration\Form\EventSettingsForm'
+    _title: 'Event Settings'
+  requirements:
+    _permission: 'administer event entity'
+
+entity.registered.canonical:
+  path: '/registered/{registered}'
+  defaults:
+    _entity_view: 'registered'
+    _title: 'registered Content'
+  requirements:
+    _entity_access: 'registered.view'
+
+entity.registered.collection:
+  path: '/registered/list'
+  defaults:
+    _entity_list: 'registered'
+    _title: 'registered List'
+  requirements:
+    _permission: 'view registered entity'
+
+entity.registered.add:
+  path: '/registered/add'
+  defaults:
+    _entity_form: registered.add
+    _title: 'register'
+  requirements:
+    _entity_create_access: 'registered'
+
+entity.registered.edit_form:
+  path: '/registered/{registered}/edit'
+  defaults:
+    _entity_form: registered.edit
+    _title: 'Edit registered'
+  requirements:
+    _entity_access: 'registered.edit'
+
+entity.registered.delete_form:
+  path: '/registered/{registered}/delete'
+  defaults:
+    _entity_form: registered.delete
+    _title: 'Delete registered'
+  requirements:
+    _entity_access: 'registered.delete'
+
+registered.registered_settings:
+  path: 'admin/structure/registered_settings'
+  defaults:
+    _form: '\Drupal\event_registration\Form\RegisteredSettingsForm'
+    _title: 'registered Settings'
+  requirements:
+    _permission: 'administer registered entity'
+
