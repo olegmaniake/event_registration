@@ -63,7 +63,7 @@ entity.registered.collection:
     _permission: 'view registered entity'
 
 entity.registered.add:
-  path: '/registered/add'
+  path: '/registered/{event}/add'
   defaults:
     _entity_form: registered.add
     _title: 'register'

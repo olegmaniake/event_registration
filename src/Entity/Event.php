@@ -116,6 +116,11 @@ class Event extends ContentEntityBase implements EventInterface {
     return $this;
   }
 
+  public function getDescription(){
+    $description = $this->get('description')->value;
+    return strip_tags($description);
+  }
+
   /**
    * {@inheritdoc}
    */
@@ -158,11 +163,11 @@ class Event extends ContentEntityBase implements EventInterface {
       ->setSetting('size', 'big')
       ->setDisplayOptions('view', array(
         'label' => 'above',
-        'type' => 'text',
+        'type' => 'string',
         'weight' => -5,
       ))
       ->setDisplayOptions('form', array(
-        'type' => 'text_textfield',
+        'type' => 'text_long',
         'settings' => array(
           'placeholder' => 'Enter Description of event in this field.'
         ),
@@ -178,7 +183,7 @@ class Event extends ContentEntityBase implements EventInterface {
       ->setSetting('handler', 'default')
       ->setDisplayOptions('view', array(
         'label' => 'above',
-        'type' => 'entity_reference',
+        'type' => 'string',
         'weight' => -3,
       ))
       ->setDisplayOptions('form', array(

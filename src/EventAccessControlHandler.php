@@ -31,8 +31,11 @@ class EventAccessControlHandler extends EntityAccessControlHandler {
       case 'delete':
         return AccessResult::allowedIfHasPermission($accountInterface, 'delete event entity');
 
+      case 'update':
+        return AccessResult::allowedIfHasPermission($accountInterface, 'edit event entity');
+
     }
-    return AccessResult::allowed();
+    return AccessResult::isAllowed();
   }
 
   /**

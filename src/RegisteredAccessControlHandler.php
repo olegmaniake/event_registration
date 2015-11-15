@@ -31,8 +31,10 @@ class RegisteredAccessControlHandler extends EntityAccessControlHandler {
       case 'delete':
         return AccessResult::allowedIfHasPermission($accountInterface, 'delete registered entity');
 
+      case 'update':
+        return AccessResult::allowedIfHasPermission($accountInterface, 'edit event entity');
+
     }
-    return AccessResult::allowed();
   }
 
   /**

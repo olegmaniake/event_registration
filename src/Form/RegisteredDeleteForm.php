@@ -31,7 +31,7 @@ class RegisteredDeleteForm extends ContentEntityConfirmFormBase {
    * If the delete command is canceled, return to the contact list.
    */
   public function getCancelURL() {
-    return new Url('registered.registered.collection');
+    return new Url('entity.registered.collection');
   }
 
   /**
@@ -50,9 +50,10 @@ class RegisteredDeleteForm extends ContentEntityConfirmFormBase {
     $entity = $this->getEntity();
     $entity->delete();
 
-    \Drupal::logger('event_registration')->notice('@type: deleted.',
+    \Drupal::logger('event_registration')->notice('@type: deleted %title..',
       array(
         '@type' => $this->entity->bundle(),
+        '%title' => $this->entity->label(),
       ));
     $form_state->setRedirect('entity.registered.collection');
   }

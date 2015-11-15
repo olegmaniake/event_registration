@@ -40,7 +40,7 @@ class RegisteredListBuilder extends EntityListBuilder {
     $header['id'] = $this->t('EventID');
     $header['first_name'] = $this->t('First Name');
     $header['surename'] = $this->t('Surename');
-    $header['event'] = $this->t('Event');
+    $header['event_registered'] = $this->t('Event');
     $header['number'] = $this->t('Number of tickets');
     return $header + parent::buildHeader();
   }
@@ -50,12 +50,12 @@ class RegisteredListBuilder extends EntityListBuilder {
    */
 
   public function buildRow(EntityInterface $entity) {
-    /* @var $entity \Drupal\event_registration\Entity\Registered*/
+    /* @var $entity \Drupal\event_registration\Entity\Registered */
     $row['id'] = $entity->id();;
-    $header['first_name'] = $entity->first_name->value;;;
-    $header['surename'] = $entity->surename->value;
-    $header['event'] = $entity->event->value;
-    $header['number'] = $entity->number->value;;
+    $row['first_name'] = $entity->first_name->value;
+    $row['surname'] = $entity->surname->value;
+    $row['event_registered'] = $entity->getEventRegistered();
+    $row['number'] = $entity->number->value;;
 
     return $row + parent::buildRow($entity);
   }

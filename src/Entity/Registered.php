@@ -39,6 +39,10 @@ use Drupal\Core\Entity\EntityChangedTrait
  *   entity_keys = {
  *     "id" = "id",
  *     "uuid" = "UUID",
+ *     "first_name" = "first_name",
+ *     "surname" = "surname",
+ *     "event_registered" = "event_registered",
+ *     "number" = "number",
  *   },
  *   links = {
  *     "canonical" = "/registered/{registered}",
@@ -113,6 +117,16 @@ class Registered extends ContentEntityBase implements RegisteredInterface {
     return $this;
   }
 
+  public function getEventRegistered(){
+    $event_id = $this->get('event_registered')->target_id;
+    $event = Event::load($event_id);
+
+    return $event->get('name')->value;
+  }
+
+
+
+
   /**
    * {@inheritdoc}
    */
@@ -149,7 +163,7 @@ class Registered extends ContentEntityBase implements RegisteredInterface {
       ->setDisplayConfigurable('view', TRUE);
 
     $fields['surname'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('First Name'))
+      ->setLabel(t('surename'))
       ->setDescription(t('The Surname of the registered entity.'))
       ->setSettings(array(
         'default_value' => '',
@@ -168,7 +182,7 @@ class Registered extends ContentEntityBase implements RegisteredInterface {
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
-    $fields['event'] = BaseFieldDefinition::create('entity_reference')
+    $fields['event_registered'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Event'))
       ->setDescription(t('The event to which the user is logged in.'))
       ->setSetting('target_type', 'event')

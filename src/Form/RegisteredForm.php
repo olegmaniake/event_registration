@@ -7,8 +7,10 @@
 namespace Drupal\event_registration\Form;
 
 use Drupal\Core\Entity\ContentEntityForm;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Language\Language;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\event_registration\EventInterface;
 
 /**
  * Form controller for the content_entity_example entity edit forms.
@@ -25,6 +27,11 @@ class RegisteredForm extends ContentEntityForm {
     $form = parent::buildForm($form, $form_state);
     $entity = $this->entity;
 
+    $event_id = \Drupal::request()->attributes->get('event');
+    $event = \Drupal::entityManager()->getStorage('event')->load($event_id);
+
+
+    $form['event_registered']['widget'][0]['target_id']['#default_value'] = $event;
     $form['langcode'] = array(
       '#title' => $this->t('Language'),
       '#type' => 'language_select',

@@ -10,4 +10,3 @@ entity.registered.add:
   appears_on:
     - entity.event.canonical
     - entity.registered.collection
-    - entity.registered.canonical

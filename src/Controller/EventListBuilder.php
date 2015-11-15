@@ -40,6 +40,7 @@ class EventListBuilder extends EntityListBuilder {
     $header['id'] = $this->t('EventID');
     $header['name'] = $this->t('Name');
     $header['description'] = $this->t('Description');
+
     return $header + parent::buildHeader();
   }
 
@@ -51,7 +52,7 @@ class EventListBuilder extends EntityListBuilder {
     /* @var $entity \Drupal\event_registration\Entity\Event*/
     $row['id'] = $entity->id();
     $row['name'] = $entity->link();
-    $row['description'] = $entity->description->value;
+    $row['description'] = $entity->getDescription();
 
     return $row + parent::buildRow($entity);
   }
