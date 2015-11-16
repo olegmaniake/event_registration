@@ -9,4 +9,3 @@ entity.registered.add:
   title: 'Sign up for an event'
   appears_on:
     - entity.event.canonical
-    - entity.registered.collection

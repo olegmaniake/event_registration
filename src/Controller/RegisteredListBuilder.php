@@ -39,7 +39,7 @@ class RegisteredListBuilder extends EntityListBuilder {
   public function buildHeader() {
     $header['id'] = $this->t('EventID');
     $header['first_name'] = $this->t('First Name');
-    $header['surename'] = $this->t('Surename');
+    $header['surname'] = $this->t('Surname');
     $header['event_registered'] = $this->t('Event');
     $header['number'] = $this->t('Number of tickets');
     return $header + parent::buildHeader();
