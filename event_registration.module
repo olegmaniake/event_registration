@@ -1,2 +1,55 @@
 <?php
 
+/**
+ * Implements hook_theme().
+ */
+function event_registration_theme($existing, $type, $theme, $path) {
+  $variables = array(
+    'events' => array(
+      'variables' => array(
+        'events' => array(),
+      ),
+      'template' => 'events',
+    ),
+    'registereds' =>array(
+      'variables' => array(
+        'registereds' => array(),
+      ),
+      'function' => 'theme_event_registration',
+    ),
+  );
+
+  return $variables;
+}
+
+function theme_event_registration($values){
+  if (isset($values['registereds'])){
+    $registereds = $values['registereds'];
+  }
+  else {
+    $registereds = $values;
+  }
+
+  $output = '<div class = "event-registration-template-wraper">';
+
+  foreach ($registereds as $registered) {
+    $output .= '<div class = "event-registration-registered-name>';
+    $output .=   $registered['first_name'];
+    $output .= '</div>';
+    $output .= '<div class = "event-registration-registered-surname>';
+    $output .=   $registered['surname'];
+    $output .= '</div>';
+    $output .= '<div class = "event-registration-registered-event>';
+    $output .=   $registered['event'];
+    $output .= '</div>';
+    $output .= '<div class = "event-registration-registered-number>';
+    $output .=   $registered['namber'];
+    $output .= '</div>';
+  }
+
+  $output .= '</div>';
+
+  return $output;
+}
+
+

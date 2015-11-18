@@ -7,7 +7,6 @@
 namespace Drupal\event_registration\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
-use Drupal\event_registration\Controller\EventListBuilder;
 use Drupal\event_registration\Entity\Event;
 
 /**
@@ -19,16 +18,21 @@ use Drupal\event_registration\Entity\Event;
 
 class EventListBlock extends BlockBase {
 
-  public function getUserId(){
-    return \Drupal::currentUser()->id();
+  private function getEvents (){
+    $events = \Drupal::entityManager()->getStorage('event')->loadMultiple();
+    $return = array();
+
+    foreach ($events as $event) {
+      $return[$event->name->value]= $event->name->value;
+    }
+    return $return;
   }
-  /**
-   * @return array
-   */
+
   public function build() {
-    /* @var $entity \Drupal\event_registration\Entity\Event*/
 
-
-   return \Drupal::entityManager()->getStorage('event')->loadByProperties(array('user_id' =>  $this->getUserId()));
+   return array(
+     '#theme' => 'events',
+     '#events' => $this-> getEvents(),
+   );
   }
 }

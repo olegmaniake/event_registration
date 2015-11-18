@@ -40,6 +40,7 @@ use Drupal\Core\Entity\EntityChangedTrait
  *     "id" = "id",
  *     "label" = "name",
  *     "uuid" = "UUID",
+ *     "user_id" = "user_id",
  *   },
  *   links = {
  *     "canonical" = "/event/{event}",
